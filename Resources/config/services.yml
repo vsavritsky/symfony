@@ -50,6 +50,10 @@ services:
         class:  BackupManager\Filesystems\SftpFilesystem
         public: false
 
+    backup_manager.filesystems.webdav_filesystem:
+        class:  BackupManager\Filesystems\WebdavFilesystem
+        public: false
+
     backup_manager.filesystems.gcs_filesystem:
         class:  BackupManager\Filesystems\GcsFilesystem
         public: false

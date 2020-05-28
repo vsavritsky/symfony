@@ -60,8 +60,11 @@ class Configuration implements ConfigurationInterface
                                     case 'Gcs':
                                         $this->validateAuthenticationType(['project', 'keyFilePath', 'bucket', 'prefix'], $config, 'Gcs');
                                         break;
+                                    case 'Webdav':
+                                        $this->validateAuthenticationType(['baseUri', 'userName', 'password', 'prefix'], $config, 'Webdav');
+                                        break;
                                     default:
-                                        $validTypes = ['Local', 'AwsS3', 'B2', 'Rackspace', 'Dropbox', 'DropboxV2', 'Ftp', 'Sftp', 'Gcs'];
+                                        $validTypes = ['Local', 'AwsS3', 'B2', 'Rackspace', 'Dropbox', 'DropboxV2', 'Ftp', 'Sftp', 'Gcs', 'Webdav'];
                                         throw new InvalidConfigurationException(sprintf('Type must be one of "%s", got "%s"', implode(', ', $validTypes), $config['type']));
                                 }
                             }
